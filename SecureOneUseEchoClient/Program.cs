@@ -33,10 +33,10 @@ namespace SecureOneUseEchoClient
             //the server sends the certificate back, and it then checks the validity of the certificate
             secureStream.AuthenticateAsClient("FakeServerName");
 
-            //The StreamReader is an easier way to read data from a Stream, it uses the NetworkStream
-            StreamReader reader = new StreamReader(ns);
-            //The StreamWriter is an easier way to write data to a Stream, it uses the NetworkStream
-            StreamWriter writer = new StreamWriter(ns);
+            //The StreamReader is an easier way to read data from a Stream, it uses the SecureStream
+            StreamReader reader = new StreamReader(secureStream);
+            //The StreamWriter is an easier way to write data to a Stream, it uses the SecureStream
+            StreamWriter writer = new StreamWriter(secureStream);
 
             //writes the message the user typed in the console to the server and appends a line break (cr lf)
             //notice the Line part of WriteLine
